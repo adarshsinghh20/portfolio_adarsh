@@ -1,10 +1,10 @@
 const STORAGE_KEY = 'theme'
 
 export function getStoredTheme() {
-  if (typeof window === 'undefined') return 'dark'
+  if (typeof window === 'undefined') return 'light'
   const stored = localStorage.getItem(STORAGE_KEY)
   if (stored === 'light' || stored === 'dark') return stored
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+  return 'light'
 }
 
 /** Apply theme to <html> immediately (used on toggle and on load). */
