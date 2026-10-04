@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light;
+
+    --color-page: 240 253 250;
+    --color-page-text: 19 78 74;
+
+    --text-heading: 15 20 25;
+    --text-body: 61 77 96;
+    --text-muted: 77 97 120;
+    --text-subtle: 107 125 146;
+
+    --border-theme: 197 206 216;
+    --bg-section-alt: 241 245 249;
+    --bg-card: 255 255 255;
+    --bg-card-muted: 255 255 255;
+    --bg-hover: 241 245 249;
+    --header-bg: 236 253 245;
+    --shadow-card: 15 20 25;
+  }
+
+  html.dark {
+    color-scheme: dark;
+
+    --color-page: 8 11 15;
+    --color-page-text: 232 236 240;
+
+    --text-heading: 255 255 255;
+    --text-body: 154 168 184;
+    --text-muted: 107 125 146;
+    --text-subtle: 77 97 120;
+
+    --border-theme: 255 255 255;
+    --bg-section-alt: 15 20 25;
+    --bg-card: 8 11 15;
+    --bg-card-muted: 15 20 25;
+    --bg-hover: 255 255 255;
+    --header-bg: 8 11 15;
+    --shadow-card: 0 0 0;
+  }
+
+  body {
+    background-color: rgb(var(--color-page) / 1);
+    color: rgb(var(--color-page-text) / 1);
+    @apply antialiased;
+  }
+
+  ::selection {
+    @apply bg-accent/25 text-ink-900;
+  }
+
+  html.dark ::selection {
+    @apply bg-accent/30 text-white;
+  }
+}
+
+@layer components {
+  .border-theme {
+    border-color: rgb(var(--border-theme) / 0.22);
+  }
+
+  html.dark .border-theme {
+    border-color: rgb(var(--border-theme) / 0.1);
+  }
+
+  .bg-section-alt {
+    background-color: rgb(var(--bg-section-alt) / 0.85);
+  }
+
+  html.dark .bg-section-alt {
+    background-color: rgb(var(--bg-section-alt) / 0.5);
+  }
+
+  .bg-card {
+    background-color: rgb(var(--bg-card) / 1);
+    box-shadow: 0 1px 2px rgb(var(--shadow-card) / 0.06);
+  }
+
+  html.dark .bg-card {
+    background-color: rgb(var(--bg-card) / 0.6);
+    box-shadow: none;
+  }
+
+  .bg-card-muted {
+    background-color: rgb(var(--bg-card-muted) / 0.92);
+  }
+
+  html.dark .bg-card-muted {
+    background-color: rgb(var(--bg-card-muted) / 0.4);
+  }
+
+  .text-heading {
+    color: rgb(var(--text-heading) / 1);
+  }
+
+  .text-body {
+    color: rgb(var(--text-body) / 1);
+  }
+
+  .text-muted {
+    color: rgb(var(--text-muted) / 1);
+  }
+
+  .hover-surface:hover {
+    background-color: rgb(var(--bg-hover) / 0.65);
+  }
+
+  html.dark .hover-surface:hover {
+    background-color: rgb(var(--bg-hover) / 0.05);
+  }
+
+  .header-bar {
+    border-bottom-width: 1px;
+    border-color: rgb(var(--border-theme) / 0.22);
+    background-color: rgb(var(--header-bg) / 0.92);
+    @apply backdrop-blur-md;
+  }
+
+  html.dark .header-bar {
+    border-color: rgb(var(--border-theme) / 0.1);
+    background-color: rgb(var(--header-bg) / 0.9);
+  }
+
+  /* Light mode: teal theme for main content sections (below hero) */
+  html:not(.dark) .teal-content {
+    --text-body: 30 64 61;
+    --text-muted: 15 118 110;
+    --text-subtle: 17 94 89;
+    --border-theme: 45 212 191;
+    --bg-section-alt: 153 246 228;
+    --bg-card: 255 255 255;
+    --bg-card-muted: 236 253 245;
+    --bg-hover: 204 251 241;
+    --shadow-card: 13 148 136;
+
+    background-color: rgb(240 253 250);
+    background-image: linear-gradient(
+      180deg,
+      rgb(240 253 250) 0%,
+      rgb(236 253 245) 45%,
+      rgb(204 251 241 / 0.35) 100%
+    );
+  }
+
+  html:not(.dark) .teal-content .bg-section-alt {
+    background-color: rgb(var(--bg-section-alt) / 0.45);
+  }
+
+  html:not(.dark) .teal-content .bg-card {
+    border: 1px solid rgb(45 212 191 / 0.22);
+  }
+
+  html:not(.dark) .teal-content .bg-card-muted {
+    border: 1px solid rgb(45 212 191 / 0.18);
+  }
+
+  html:not(.dark) .teal-content .border-theme {
+    border-color: rgb(45 212 191 / 0.28);
+  }
+
+  html:not(.dark) .site-footer {
+    background-color: rgb(236 253 245);
+    border-color: rgb(45 212 191 / 0.25);
+  }
+
+  html:not(.dark) .contact-panel {
+    background-image: linear-gradient(
+      135deg,
+      rgb(255 255 255) 0%,
+      rgb(204 251 241 / 0.55) 50%,
+      rgb(153 246 228 / 0.35) 100%
+    );
+  }
+
+  html:not(.dark) .availability-badge {
+    color: #000000;
+    background-color: #ffffff;
+    border-color: rgb(0 0 0 / 0.18);
+    box-shadow: 0 1px 3px rgb(0 0 0 / 0.08);
+  }
+
+  html.dark .availability-badge {
+    color: rgb(110 231 183);
+    background-color: rgb(16 185 129 / 0.1);
+    border-color: rgb(16 185 129 / 0.35);
+    box-shadow: none;
+    font-weight: 500;
+  }
+}
+
+@layer utilities {
+  .section-padding {
+    @apply px-5 py-20 sm:px-8 lg:px-12 lg:py-24;
+  }
+
+  .section-container {
+    @apply mx-auto max-w-6xl;
+  }
+}
