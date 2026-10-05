@@ -8,7 +8,7 @@ export const profile = {
   location: 'Ghaziabad, India',
   linkedin: 'https://www.linkedin.com/in/adarsh-singh-b357712a6/',
   github: 'https://github.com/adarshsinghh20',
-  image: '/adarsh_br.png',
+  image: '/adarshfinal.png',
   logo: '/AS_LOGO.png',
   availability: ['Internships', 'Freelance', 'Full-time'],
 }
